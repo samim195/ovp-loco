@@ -1,0 +1,5 @@
+rootProject.name = 'ovp-loco'
+
+include 'service'
+include 'service-functional'
+

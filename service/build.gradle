@@ -1,0 +1,39 @@
+plugins {
+	id 'org.springframework.boot' version '2.4.4'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'uk.sky.ovp'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'io.micrometer:micrometer-registry-prometheus:latest.release'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	implementation 'net.logstash.logback:logstash-logback-encoder:6.4'
+	implementation("com.google.code.findbugs:jsr305:3.0.2")
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation("org.assertj:assertj-core:3.17.2")
+	testImplementation('org.mockito:mockito-core:3.6.0')
+	testImplementation('org.mockito:mockito-inline:3.6.0')
+	testImplementation('org.mockito:mockito-junit-jupiter:3.6.0')
+}
+
+test {
+	useJUnitPlatform()
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.1.2'
+}
+
+springBoot {
+	buildInfo()
+}
